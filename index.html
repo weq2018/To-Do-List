@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- jQuery -->
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- popper.js -->
+  <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div id="app" class="container my-3">
+    <form action="">
+      <!-- Task Detail - Title and ID -->
+      <div class="form-row">
+        <div class="form-group col-md-4"><input type="text" name="" id="" class="form-control" required placeholder="Task ID" v-model="cacheTask.taskID"></div>
+        <div class="form-group col-md-4"><input type="text" name="" id="" class="form-control" required placeholder="Task Title" v-model="cacheTask.task"></div>
+        <div class="form-group col-md-4"><input type="text" name="" id="" class="form-control" required placeholder="Subtask Title" v-model="cacheTask.subtask"></div>
+      </div>
+      <!-- Task Detail - Date and Budget -->
+      <div class="form-row">
+        <div class="form-group col-md-3"><vuejs-datepicker :bootstrap-styling="true" :clear-button="true" :required="true" placeholder="Start Date" id="" v-model="cacheTask.startDate"></vuejs-datepicker></div>
+        <div class="form-group col-md-3"><vuejs-datepicker :bootstrap-styling="true" :clear-button="true" :required="true" placeholder="End Date" id="" v-model="cacheTask.endDate"></vuejs-datepicker></div>
+        <div class="form-group col-md-3"><input type="number" name="" id="" class="form-control" required placeholder="Budget" v-model="cacheTask.budget"></div>
+        <div class="form-group col-md-3"><input type="number" name="" id="" class="form-control" placeholder="Spend" v-model="cacheTask.spend"></div>
+      </div>
+      <div class="form-row">
+        <!-- Note -->
+        <div class="form-group col-md-9">
+          <p class="text-danger" v-if="disabled">
+            <span class="badge badge-pill badge-info">Note</span>
+            Fulfill the form and make sure the start date is earlier than the end date.
+          </p>
+        </div>
+        <!-- Submit BTN -->
+        <div class="from-group col-md-3 text-right"><button type="button" class="btn btn-primary" :disabled="disabled" @click="insertFn()">Submit</button></div>
+      </div>
+    </form>
+  </div>
+  
+  <!-- Vue.js -->
+  <script src="/node_modules/vue/dist/vue.min.js"></script>
+  <!-- vuejs-datepicker -->
+  <script src="/node_modules/vuejs-datepicker/dist/vuejs-datepicker.min.js"></script>
+  <script src="/javascript/app.js"></script>
+</body>
+</html>
